@@ -9,8 +9,8 @@ Spotify tool that helps you keep number of songs per user of a collaborative pla
 5. run with `python pruner.py` (for now this will run a one time clean)
 6. For a 15 second prune interval, add the following to your crontab:
 ```bash
-* * * * * python3 /home/dietpi/Spotify-Playlist-Pruner/pruner.py
-* * * * * sleep 15; python3 /home/dietpi/Spotify-Playlist-Pruner/pruner.py
-* * * * * sleep 30; python3 /home/dietpi/Spotify-Playlist-Pruner/pruner.py
-* * * * * sleep 45; python3 /home/dietpi/Spotify-Playlist-Pruner/pruner.py
+* * * * * python3 {INSTALL_DIRECTORY}/pruner.py
+* * * * * sleep 15; python3 {INSTALL_DIRECTORY}/pruner.py
+* * * * * sleep 30; python3 {INSTALL_DIRECTORY}/pruner.py
+* * * * * sleep 45; python3 {INSTALL_DIRECTORY}/pruner.py
 ```
