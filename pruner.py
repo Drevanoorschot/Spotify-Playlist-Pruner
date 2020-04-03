@@ -55,7 +55,6 @@ class Pruner:
             user = track["added_by"]["id"]
             if user not in config.get("allowed_users"):
                 self.remove_track(track["track"]["uri"])
-                pass
             else:
                 user_tracks.get(user).append(track)
         # remove latest tracks if >user_limit
@@ -86,4 +85,4 @@ class Pruner:
             print("returned with status code: " + conn.getresponse().status)
 
 
-Pruner().remove_track("spotify:track:3QCYGGHncqwMTTfu4jScEy")
+Pruner().prune_playlist()
