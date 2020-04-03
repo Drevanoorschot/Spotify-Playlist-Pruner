@@ -1,3 +1,5 @@
+# put this script in cron job for best constant monitoring of a playlist
+
 import json
 from base64 import b64encode
 from http.client import HTTPSConnection
@@ -79,10 +81,13 @@ class Pruner:
                 }]
         })
         conn.request("DELETE", "/v1/playlists/{id}/tracks".format(id=config.get("playlist_id")), body, headers)
-        obj = conn.getresponse().read()
-        if not conn.getresponse().status == 200:
-            print("failed to remove track!")
-            print("returned with status code: " + conn.getresponse().status)
+        response = conn.getresponse().read()
 
 
-Pruner().prune_playlist()
+def callback():
+    print("pruning playlist...")
+    Pruner().prune_playlist()
+    print("pruning completed")
+
+
+callback()
