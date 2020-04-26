@@ -1,5 +1,6 @@
 import logging
 import sys
+from logging.handlers import RotatingFileHandler
 from pathlib import Path
 
 import os
@@ -14,11 +15,14 @@ if not os.path.isdir(log_dir):
     os.makedirs(log_dir)
 
 formatting = logging.Formatter('%(asctime)s %(name)-12s %(levelname)-8s %(message)s')
-handler = logging.FileHandler("{home}/logs/Spotify-pruner.log".format(home=Path.home()))
+handler = RotatingFileHandler("{home}/logs/Spotify-pruner.log".format(home=Path.home()),
+                              maxBytes=1024 * 1024,
+                              backupCount=5)
 handler.setFormatter(formatting)
 logger = logging.Logger(name="API-calls")
 logger.addHandler(handler)
-
+while True:
+    logger.info("log fill test")
 
 p = Pruner()
 m = Mirror()
