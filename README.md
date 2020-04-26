@@ -14,4 +14,15 @@ The pruner does requirer to setup your own Spotify API developer keys.
     - `tracks` for updating mirrors playlist tracks (removes old tracks and adds new tracks)
     - `title` for updating mirrors playlist title (removes any substring containing `" (private)"` too)
 
-It is advised to setup a crontab for periodic updates
+It is advised to setup a crontab for periodic updates, for example you could use:
+```bash
+* * * * * python3 {INSTALL_DIR}/main.py tracks prune title
+* * * * * sleep 15; python3 {INSTALL_DIR}/main.py tracks prune title
+* * * * * sleep 30; python3 {INSTALL_DIR}/main.py tracks prune title
+* * * * * sleep 45; python3 {INSTALL_DIR}/main.py tracks prune title
+
+0 * * * * python3 {INSTALL_DIR}/main.py image
+15 * * * * python3 {INSTALL_DIR}/main.py image
+30 * * * * python3 {INSTALL_DIR}/main.py image
+45 * * * * python3 {INSTALL_DIR}/main.py image
+```
