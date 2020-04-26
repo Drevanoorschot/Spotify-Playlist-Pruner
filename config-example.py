@@ -8,5 +8,6 @@ config = {
     "allowed_users": [
         "user1", "user2", "etc..."
     ],
-    "user_song_limit": 25
+    "user_song_limit": 25,
+    "mirror": "mirror_id"
 }
