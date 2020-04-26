@@ -1,15 +1,20 @@
 import logging
 import sys
+from pathlib import Path
+
+import os
 
 from mirror import Mirror
 from pruner import Pruner
 
-# logging.basicConfig(
-#     filename="logs.log",
-#     format='%(asctime)s %(name)-12s %(levelname)-8s %(message)s',
-# )
+log_dir = "{home}/logs/".format(home=Path.home())
+
+if not os.path.isdir(log_dir):
+    print("no logging directory exists. Creating one...")
+    os.makedirs(log_dir)
+
 formatting = logging.Formatter('%(asctime)s %(name)-12s %(levelname)-8s %(message)s')
-handler = logging.FileHandler("logs.log")
+handler = logging.FileHandler("{home}/logs/Spotify-pruner.log".format(home=Path.home()))
 handler.setFormatter(formatting)
 logger = logging.Logger(name="API-calls")
 logger.addHandler(handler)
