@@ -5,6 +5,7 @@ The pruner does requirer to setup your own Spotify API developer keys.
 
 ## Installation
 1. clone the repo
+<<<<<<< HEAD
 2. copy `config-example.py` to `config.py`
 3. fill out config to your needs
 4. run `python main.py` with one (or more) of the following arguments (space seperated):
