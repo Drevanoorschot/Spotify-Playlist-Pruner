@@ -21,8 +21,6 @@ handler = RotatingFileHandler("{home}/logs/Spotify-pruner.log".format(home=Path.
 handler.setFormatter(formatting)
 logger = logging.Logger(name="API-calls")
 logger.addHandler(handler)
-while True:
-    logger.info("log fill test")
 
 p = Pruner()
 m = Mirror()
