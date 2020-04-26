@@ -44,9 +44,3 @@ class Pruner(SpotifyActor):
         })
         conn.request("DELETE", "/v1/playlists/{id}/tracks".format(id=config.get("playlist_id")), body, headers)
         response = conn.getresponse().read()
-
-
-def callback():
-    print("pruning playlist...")
-    Pruner().prune_playlist()
-    print("pruning completed")
